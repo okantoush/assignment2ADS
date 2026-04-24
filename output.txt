@@ -1,0 +1,128 @@
+=== B-Tree (2-3-4) Operation Trace ===
+
+Insert 10:
+Level 0: [10]
+
+Insert 20:
+Level 0: [10 20]
+
+Insert 5:
+Level 0: [5 10 20]
+
+Delete 10:
+Level 0: [5 20]
+
+Search 20: FOUND
+
+Insert 6:
+Level 0: [5 6 20]
+
+Insert 12:
+Level 0: [6]
+Level 1: [5] [12 20]
+
+Insert 30:
+Level 0: [6]
+Level 1: [5] [12 20 30]
+
+Insert 7:
+Level 0: [6 20]
+Level 1: [5] [7 12] [30]
+
+Insert 17:
+Level 0: [6 20]
+Level 1: [5] [7 12 17] [30]
+
+Insert 25:
+Level 0: [6 20]
+Level 1: [5] [7 12 17] [25 30]
+
+Insert 3:
+Level 0: [6 20]
+Level 1: [3 5] [7 12 17] [25 30]
+
+Insert 1:
+Level 0: [6 20]
+Level 1: [1 3 5] [7 12 17] [25 30]
+
+Insert 100:
+Level 0: [6 20]
+Level 1: [1 3 5] [7 12 17] [25 30 100]
+
+Insert 50:
+Level 0: [6 20 30]
+Level 1: [1 3 5] [7 12 17] [25] [50 100]
+
+Insert 40:
+Level 0: [20]
+Level 1: [6] [30]
+Level 2: [1 3 5] [7 12 17] [25] [40 50 100]
+
+Insert 60:
+Level 0: [20]
+Level 1: [6] [30 50]
+Level 2: [1 3 5] [7 12 17] [25] [40] [60 100]
+
+Insert 80:
+Level 0: [20]
+Level 1: [6] [30 50]
+Level 2: [1 3 5] [7 12 17] [25] [40] [60 80 100]
+
+Insert 90:
+Level 0: [20]
+Level 1: [6] [30 50 80]
+Level 2: [1 3 5] [7 12 17] [25] [40] [60] [90 100]
+
+Insert 45:
+Level 0: [20 50]
+Level 1: [6] [30] [80]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [60] [90 100]
+
+Insert 55:
+Level 0: [20 50]
+Level 1: [6] [30] [80]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [55 60] [90 100]
+
+Insert 75:
+Level 0: [20 50]
+Level 1: [6] [30] [80]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [55 60 75] [90 100]
+
+SAVE -> snapshot.dat
+
+Insert 999:
+Level 0: [20 50]
+Level 1: [6] [30] [80]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [55 60 75] [90 100 999]
+
+Insert 888:
+Level 0: [20 50]
+Level 1: [6] [30] [80 100]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [55 60 75] [90] [888 999]
+
+Delete 50:
+Level 0: [20 55]
+Level 1: [6] [30] [80 100]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [60 75] [90] [888 999]
+
+RESTORE from snapshot.dat:
+Level 0: [20 50]
+Level 1: [6] [30] [80]
+Level 2: [1 3 5] [7 12 17] [25] [40 45] [55 60 75] [90 100]
+
+Search 45: FOUND
+
+Search 999: NOT FOUND
+
+Search 5: FOUND
+
+[unknown op] XYZ
+[invalid I line] I notanumber
+[invalid D line] D
+
+=== Summary ===
+Total operations read : 33
+Invalid lines ignored : 3
+Total splits          : 8
+Final height          : 3
+Final in-order sweep  : 1 3 5 6 7 12 17 20 25 30 40 45 50 55 60 75 80 90 100 

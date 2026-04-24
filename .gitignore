@@ -1,0 +1,6 @@
+btree
+*.o
+*.aux
+*.log
+*.toc
+*.pdf

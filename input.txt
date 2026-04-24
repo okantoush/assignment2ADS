@@ -1,0 +1,45 @@
+# Assignment input - operations file
+# I x  = Insert  | D x = Delete | S x = Search
+# SAVE / RESTORE / CLEAR are also supported.  Lines starting with # are ignored.
+
+I 10
+I 20
+I 5
+D 10
+S 20
+I 6
+I 12
+
+# --- stress-insert to force multiple splits ---
+I 30
+I 7
+I 17
+I 25
+I 3
+I 1
+I 100
+I 50
+I 40
+I 60
+I 80
+I 90
+I 45
+I 55
+I 75
+
+# --- save current tree, then modify, then restore ---
+SAVE
+I 999
+I 888
+D 50
+RESTORE
+
+# --- search tests ---
+S 45
+S 999
+S 5
+
+# --- a couple of invalid lines (should be ignored safely) ---
+XYZ
+I notanumber
+D
