@@ -74,5 +74,4 @@ Every serialized record begins with a **leaf flag** (`1` for leaf, `0` for inter
 | Traverse  | O(n)        | O(h) recursion |
 | Level-order | O(n)      | O(n) queue |
 
-## Author
-Mohamed — Electronics and Communications Engineering (AUC)
+
