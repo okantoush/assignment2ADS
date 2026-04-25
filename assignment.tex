@@ -77,15 +77,15 @@
 \vspace{3cm}
 
 \begin{tabular}{rl}
-\textbf{Name:}      & Mohamed \rule{6cm}{0.4pt} \\[6pt]
-\textbf{Student ID:}& \rule{6cm}{0.4pt} \\[6pt]
-\textbf{Course:}    & \rule{6cm}{0.4pt} \\[6pt]
-\textbf{Instructor:}& \rule{6cm}{0.4pt} \\[6pt]
+\textbf{Name:}      & Omar Kantoush \\[6pt]
+\textbf{Student ID:}& 900241359 \\[6pt]
+\textbf{Course:}    & CSCE2211-01-02 --- Applied Data Structures \\[6pt]
+\textbf{Instructor:}& Dr.\ Ashraf Abdel Raouf \\[6pt]
 \textbf{Date:}      & \today
 \end{tabular}
 
 \vfill
-{\large GitHub: \url{https://github.com/<your-username>/BTree-Assignment}\par}
+{\large GitHub: \url{https://github.com/okantoush/assignment2ADS}\par}
 \end{titlepage}
 
 % ============================================================================
@@ -238,7 +238,7 @@ Level 1: [5] [12 20]
 % ============================================================================
 \section{Edge-Case Analysis (Part 7)}
 
-\subsection*{Case 1 — Repeated keys: \texttt{10\ 10\ 10\ 10}}
+\subsection*{Case 1 --- Repeated keys: \texttt{10\ 10\ 10\ 10}}
 
 \begin{lstlisting}[style=plain]
 Insert 10:  Level 0: [10]
@@ -250,10 +250,10 @@ Insert 10:
 \end{lstlisting}
 
 \textbf{What happens?} The tree allows duplicates. The fourth insertion finds the root full, splits it, promotes the median 10, and the new key lands in the right leaf.\\[2pt]
-\textbf{Is it still balanced?} Yes — all leaves are at depth 1. The B-Tree balance invariant depends only on structural position, not on key uniqueness. Duplicates are permitted by the comparison $k > \mathrm{keys}[i]$ used during descent (ties always go left).\\[2pt]
+\textbf{Is it still balanced?} Yes --- all leaves are at depth 1. The B-Tree balance invariant depends only on structural position, not on key uniqueness. Duplicates are permitted by the comparison $k > \mathrm{keys}[i]$ used during descent (ties always go left).\\[2pt]
 \textbf{Total splits:} 1.
 
-\subsection*{Case 2 — Full root before overflow: \texttt{10\ 20\ 30\ 40}}
+\subsection*{Case 2 --- Full root before overflow: \texttt{10\ 20\ 30\ 40}}
 
 \begin{lstlisting}[style=plain]
 Insert 10:  [10]
@@ -264,7 +264,7 @@ Insert 40:
     Level 1: [10] [30 40]
 \end{lstlisting}
 
-\textbf{What happens when inserting into a full root?} The driver in \texttt{BTree::insert} detects \texttt{root->n == 2t-1}, allocates a new internal root, and calls \texttt{splitChild(0, oldRoot)}. The median (20) is promoted into the new root; the remaining keys go to the two children. The tree \emph{grows upward} — this is the only way height increases.\\[2pt]
+\textbf{What happens when inserting into a full root?} The driver in \texttt{BTree::insert} detects \texttt{root->n == 2t-1}, allocates a new internal root, and calls \texttt{splitChild(0, oldRoot)}. The median (20) is promoted into the new root; the remaining keys go to the two children. The tree \emph{grows upward} --- this is the only way height increases.\\[2pt]
 \textbf{Total splits:} 1.
 
 % ============================================================================
@@ -349,7 +349,7 @@ A B-Tree of minimum degree $t$ allows each internal node to hold between $t{-}1$
 \[
     1 \leq n \leq 3, \qquad 2 \leq \text{children} \leq 4.
 \]
-The ``2, 3, or 4 children'' rule that gives the tree its name is therefore just the $t = 2$ instance of the general B-Tree rule. The 2-3-4 tree is pedagogically important because it is isomorphic to a red-black tree — every red-black insertion/deletion corresponds exactly to a 2-3-4 operation.
+The ``2, 3, or 4 children'' rule that gives the tree its name is therefore just the $t = 2$ instance of the general B-Tree rule. The 2-3-4 tree is pedagogically important because it is isomorphic to a red-black tree --- every red-black insertion/deletion corresponds exactly to a 2-3-4 operation.
 
 \subsection*{2. Maximum number of children?}
 $2t = 4$.
@@ -408,20 +408,20 @@ Compile with a plain \texttt{g++} command         & \texttt{g++ -O2 -std=c++17 m
 \begin{center}
 \fbox{\parbox{0.85\linewidth}{\centering
 \textbf{Repository URL:}\\[4pt]
-\url{https://github.com/<your-username>/BTree-Assignment}\\[6pt]
+\url{https://github.com/okantoush/assignment2ADS}\\[6pt]
 \textbf{TA access:} the TAs have been added as collaborators through the \emph{Settings $\rightarrow$ Collaborators} tab.
 }}
 \end{center}
 
 \subsection*{Directory Layout}
 \begin{lstlisting}[style=plain]
-BTree-Assignment/
-|-- src/
-|   `-- main.cpp
+assignment2ADS/
+|-- main.cpp
 |-- input.txt
 |-- output.txt
 |-- log.txt
 |-- snapshot.dat
+|-- assignment.tex
 `-- README.md
 \end{lstlisting}
 
