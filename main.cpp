@@ -1,8 +1,4 @@
 // ============================================================================
-//  Advanced B-Tree (2-3-4 Tree) Assignment
-//  Author: Mohamed
-//  Course: Data Structures
-//
 //  A B-Tree of order 4 (minimum degree t = 2).
 //  Each node stores 1..3 keys and has 2..4 children.
 //
